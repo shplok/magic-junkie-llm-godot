@@ -4,11 +4,11 @@ Local LLM inference in Godot using the Godot LLM extension (powered by llama.cpp
 
 ## Features
 
-- 🎮 **Fully Embedded**: No external servers, runs entirely in your game
-- 🚀 **GPU Accelerated**: Metal support on macOS (Vulkan on other platforms)
-- 💬 **Chat Interface**: Simple UI for testing dialogue generation
-- 🔄 **Real-time Streaming**: See tokens generate live
-- 📦 **Offline**: Everything runs locally
+- **Fully Embedded**: No external servers, runs entirely in your game
+- **GPU Accelerated**: Metal support on macOS (Vulkan on other platforms)
+- **Chat Interface**: Simple UI for testing dialogue generation
+- **Real-time Streaming**: See tokens generate live
+- **Offline**: Everything runs locally
 
 ## Setup
 
