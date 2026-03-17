@@ -1,0 +1,26 @@
+# Godot 4+ specific ignores
+.godot/
+
+# Godot-specific
+*.import
+*.translation
+export_presets.cfg
+
+# Logs
+*.log
+
+# OS/Editor specific
+.DS_Store
+*.swp
+*.swo
+*~
+
+# Models - too large for git (users need to download their own)
+models/*.gguf
+
+# Build artifacts
+*.o
+*.a
+*.so
+*.dylib
+*.dll
