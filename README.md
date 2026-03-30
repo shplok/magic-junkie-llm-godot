@@ -21,12 +21,20 @@ Local LLM inference in Godot using the Godot LLM extension (powered by llama.cpp
 
 2. **Open in Godot 4.6+**
 
-3. **Run `chat_ui.tscn`** to test the chat interface
+3. **Run `npc_chat_test.tscn`** to test multiple NPCs
+   - Press **1** to talk to Gareth the Merchant (MEAN)
+   - Press **2** to talk to Captain Brutus (INDIFFERENT)
+   - Press **3** to talk to Old Mara (KIND)
+   - Press **ESC** to end conversation (clears memory)
+   - Or run `chat_ui.tscn` for simple single-conversation chat
 
 ## Files
 
-- `chat_ui.tscn` - Interactive chat interface
+- `npc_chat_test.tscn` - **NEW!** Interactive NPC chat (press 1/2/3 to switch NPCs)
+- `chat_ui.tscn` - Simple chat interface
 - `test_llm_simple.tscn` - Simple generation test
+- `npc_llm_handler.gd` - Singleton for managing multiple NPC conversations
+- `system_prompts/` - NPC personality templates
 - `addons/godot_llm/` - Pre-built Godot LLM extension
 - `models/` - Place your .gguf models here
 
@@ -41,14 +49,19 @@ gdllama.generate_text_finished.connect(_on_response)
 gdllama.run_generate_text("Your prompt here", "", "")
 
 func _on_response(text):
-    print("AI said: ", text)
+	print("AI said: ", text)
 ```
 
 ## Requirements
 
 - Godot 4.6+
-- ~1-2GB free RAM (depending on model size)
-- GGUF model file (1-4B parameters recommended)
+- ~4-5GB free RAM (for Mistral 7B) or ~1-2GB (for Qwen 1.5B)
+- GGUF model file
+
+## Models Included
+
+- **Mistral 7B Instruct** (`mistral-7b-instruct-q4.gguf`) - Default, better instruction following
+- **Qwen 1.5B** (`qwen-1.5b-q4.gguf`) - Faster, uses less RAM
 
 ## Credits
 

@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="llmtest"
-run/main_scene="res://chat_ui.tscn"
+run/main_scene="res://npc_chat_test.tscn"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+NPCLLMHandler="*res://npc_llm_handler.gd"
 
 [physics]
 
