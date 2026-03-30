@@ -104,7 +104,7 @@ func _end_current_conversation():
 func _on_send_pressed():
 	_send_message()
 
-func _on_text_submitted(text: String):
+func _on_text_submitted(_text: String):
 	_send_message()
 
 func _send_message():

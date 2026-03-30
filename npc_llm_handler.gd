@@ -236,20 +236,24 @@ func _evaluate_conversation(npc_name: String) -> void:
 		conversation_log += msg + "\n"
 
 	# Build evaluation prompt
-	var eval_prompt = """You just had this conversation:
+	var eval_prompt = """Analyze this conversation objectively:
 
 %s
 
-Based on your personality (%s) and this conversation, rate from 0.0 to 1.0 how convinced you are to give the player what they want:
-- 0.0 = Not convinced at all, refused completely
-- 0.3 = Slightly swayed but still no
-- 0.5 = On the fence, could go either way
-- 0.7 = Mostly convinced, leaning yes
-- 1.0 = Fully convinced, definitely yes
+Look at the NPC's responses. Did the NPC actually AGREE to give the player what they asked for?
 
-Consider: Did they offer something valuable? Did they appeal to your personality? Were they persuasive?
+Rate 0.0 to 1.0:
+- 0.0 = NPC refused, said no, rejected, threatened, or was hostile
+- 0.2 = NPC dismissed player but less hostile
+- 0.4 = NPC was neutral, didn't commit either way
+- 0.6 = NPC showed some interest but didn't fully agree
+- 0.8 = NPC was willing but had conditions
+- 1.0 = NPC explicitly agreed to give/do what player asked
 
-Reply with ONLY a number between 0.0 and 1.0, nothing else.""" % [conversation_log, conv.system_prompt.split("Personality:")[1].split("RULES:")[0].strip()]
+If the NPC said things like "no", "I won't", "leave", threatened the player, or refused = LOW SCORE (0.0-0.3)
+If the NPC said "yes", "I'll help", "here you go", or agreed = HIGH SCORE (0.7-1.0)
+
+Reply with ONLY a number 0.0-1.0, nothing else.""" % conversation_log
 
 	# Mark as evaluating
 	conv.is_evaluating = true
