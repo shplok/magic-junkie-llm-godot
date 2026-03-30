@@ -18,6 +18,9 @@ export_presets.cfg
 # Models - too large for git (users need to download their own)
 models/*.gguf
 
+# Archive - old test files
+archive/
+
 # Build artifacts
 *.o
 *.a

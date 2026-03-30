@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://btest123"]
-
-[ext_resource type="Script" uid="uid://db0nrixjqdx6c" path="res://test_llm_simple.gd" id="1"]
-
-[node name="TestLLM" type="Node" unique_id=490033385]
-script = ExtResource("1")
